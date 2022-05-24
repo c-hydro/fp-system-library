@@ -1,0 +1,16 @@
+[app_fp_system_library_organizer.py:60 -                 main() ]  ============================================================================ 
+[app_fp_system_library_organizer.py:61 -                 main() ]  ==> FP Library - Deps organizer (Version: 1.0.0 Release_Date: 2022-05-23)
+[app_fp_system_library_organizer.py:62 -                 main() ]  ==> START ... 
+[app_fp_system_library_organizer.py:63 -                 main() ]  
+[app_fp_system_library_organizer.py:71 -                 main() ]  ---> Define file deps source and destination ... 
+[app_fp_system_library_organizer.py:78 -                 main() ]  ---> Define file deps source and destination ... DONE
+[app_fp_system_library_organizer.py:83 -                 main() ]  ---> Organize file deps source and destination ... 
+[app_fp_system_library_organizer.py:97 -                 main() ]  ---> Organize file deps source and destination ... DONE
+[app_fp_system_library_organizer.py:102 -                 main() ]  ---> Write file deps destination ... 
+[app_fp_system_library_organizer.py:107 -                 main() ]  ---> Write file deps destination ... DONE
+[app_fp_system_library_organizer.py:114 -                 main() ]  
+[app_fp_system_library_organizer.py:115 -                 main() ]  ==> FP Library - Deps organizer (Version: 1.0.0 Release_Date: 2022-05-23)
+[app_fp_system_library_organizer.py:116 -                 main() ]  ==> TIME ELAPSED: 17.1 seconds
+[app_fp_system_library_organizer.py:117 -                 main() ]  ==> ... END
+[app_fp_system_library_organizer.py:118 -                 main() ]  ==> Bye, Bye
+[app_fp_system_library_organizer.py:119 -                 main() ]  ============================================================================ 
