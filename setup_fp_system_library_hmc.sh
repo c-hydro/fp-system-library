@@ -21,7 +21,7 @@ script_date='2022/05/23'
 fileref_zlib='http://www.zlib.net/zlib-1.2.12.tar.gz'
 fileref_hdf5='https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.17/src/hdf5-1.8.17.tar.gz'
 fileref_nc4_c='https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.6.0.tar.gz'
-fileref_nc4_fortran='https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.2.tar.gz'
+fileref_nc4_fortran='https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.3.tar.gz'
 
 # Argument(s) default definition(s)
 fp_folder_root_default=$HOME/fp_system_libs_hmc
@@ -182,8 +182,10 @@ cd $fp_folder_source_nc4_fortran
 
 export CC=gcc
 export FC=gfortran
-export FCFLAGS="-w -fallow-argument-mismatch -O2"
-export FFLAGS="-w -fallow-argument-mismatch -O2"
+#export FCFLAGS="-w -fallow-argument-mismatch -O2" # older fortran compilers
+#export FFLAGS="-w -fallow-argument-mismatch -O2" # older fortran compilers
+export FCFLAGS=""
+export FFLAGS=""
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${fp_folder_nc4_c}/lib
 
