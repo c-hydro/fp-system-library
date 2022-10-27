@@ -2,9 +2,17 @@
 Changelog
 =========
 
+Version 1.0.1 [2022-10-27]
+**************************
+FIX: **setup_fp_system_library_hmc.sh**
+    - Library zlib version set to 1.2.13  
+    
+FIX: **setup_fp_system_library_zlib.sh**
+    - Library zlib version set to 1.2.13  
+
 Version 1.0.0 [2022-05-23]
 **************************
-APP: **app_fp_system_library_deps_organizer.sh**
+APP: **app_fp_system_library_deps_organizer.py**
     - Script for merging library deps 
     
 APP: **setup_fp_system_library_eccodes.sh**

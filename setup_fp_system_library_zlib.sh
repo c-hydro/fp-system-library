@@ -7,14 +7,14 @@
 #-----------------------------------------------------------------------------------------
 # Script information
 script_name='FP ENVIRONMENT - SYSTEM LIBRARIES GENERIC - ZLIB'
-script_version="1.0.0"
-script_date='2022/05/18'
+script_version="1.0.1"
+script_date='2022/10/27'
 
 # Define library name, archive and repository
 library_clean=true
 library_name='zlib'
 library_archive_generic='zlib.tar.gz'
-library_archive_reference='zlib-1.2.12.tar.gz'
+library_archive_reference='zlib-1.2.13.tar.gz'
 library_archive_address='http://www.zlib.net/'
 
 # Define library building root and source path

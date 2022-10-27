@@ -14,11 +14,11 @@
 #-----------------------------------------------------------------------------------------
 # Script information
 script_name='FP ENVIRONMENT - SYSTEM LIBRARIES HMC'
-script_version="1.0.0"
-script_date='2022/05/23'
+script_version="1.0.1"
+script_date='2022/10/27'
 
 # Define file reference path according with https link(s)
-fileref_zlib='http://www.zlib.net/zlib-1.2.12.tar.gz'
+fileref_zlib='http://www.zlib.net/zlib-1.2.13.tar.gz'
 fileref_hdf5='https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.17/src/hdf5-1.8.17.tar.gz'
 fileref_nc4_c='https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.6.0.tar.gz'
 fileref_nc4_fortran='https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.3.tar.gz'
