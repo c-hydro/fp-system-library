@@ -14,7 +14,7 @@
 #-----------------------------------------------------------------------------------------
 # Script information
 script_name='FP ENVIRONMENT - SYSTEM LIBRARIES S3M'
-script_version="1.0.0"
+script_version="1.1.0"
 script_date='2022/11/17'
 
 # Define file reference path according with https link(s)
