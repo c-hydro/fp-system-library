@@ -2,6 +2,14 @@
 Changelog
 =========
 
+Version 1.0.3 [2023-08-18]
+**************************
+APP: **setup_fp_system_library_antlr.sh**
+    - Script for installing antlr library 2.7.7 version (for linking to nco-5.1.7 application)   
+
+FIX: **all bash scripts**
+	- make commands set in root path and not in binaries path
+
 Version 1.0.2 [2022-12-09]
 **************************
 FIX: **setup_fp_system_library_gdal.sh**

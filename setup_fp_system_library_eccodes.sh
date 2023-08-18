@@ -4,6 +4,7 @@
 # NOTE:
 # sudo apt-get install python-dev   # for python2.x
 # sudo apt-get install python3-dev  # for python3.x
+# sudo apt-get install cmake
 #-----------------------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------------------
@@ -47,8 +48,8 @@ library_cmd_archive_download_remote='wget %LIBRARY_ARCHIVE_LINK_REMOTE -O %LIBRA
 library_cmd_archive_unzip="tar -xzvf %LIBRARY_ARCHIVE_BUILDING_SOURCE -C %LIBRARY_PATH_BUILDING_SOURCE --strip-components=1"
 
 library_cmd_archive_configure='cmake ../../eccodes -DENABLE_NETCDF=ON -DNETCDF_PATH=%LIBRARY_DEPS_NETCDF_MAIN -DCMAKE_INSTALL_PREFIX=%LIBRARY_PATH_BUILDING_DESTINATION'
-library_cmd_archive_build='/bin/make'
-library_cmd_archive_install='/bin/make install'
+library_cmd_archive_build='make'
+library_cmd_archive_install='make install'
 # ----------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------

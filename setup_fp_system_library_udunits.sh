@@ -34,8 +34,8 @@ library_cmd_archive_download_remote='wget %LIBRARY_ARCHIVE_LINK_REMOTE -O %LIBRA
 library_cmd_archive_unzip="tar -xvf %LIBRARY_ARCHIVE_BUILDING_SOURCE -C %LIBRARY_PATH_BUILDING_SOURCE --strip-components=1"
 
 library_cmd_archive_configure='./configure --prefix=%LIBRARY_PATH_BUILDING_DESTINATION'
-library_cmd_archive_build='/bin/make'
-library_cmd_archive_install='/bin/make install'
+library_cmd_archive_build='make'
+library_cmd_archive_install='make install'
 # ----------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------

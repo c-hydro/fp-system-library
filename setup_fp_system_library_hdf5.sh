@@ -41,8 +41,8 @@ library_cmd_archive_unzip_group=(
 )
 
 library_cmd_archive_configure='./configure --prefix=%LIBRARY_PATH_BUILDING_DESTINATION --with-zlib=%LIBRARY_DEPS_ZLIB'
-library_cmd_archive_build='/bin/make'
-library_cmd_archive_install='/bin/make install'
+library_cmd_archive_build='make'
+library_cmd_archive_install='make install'
 # ----------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------

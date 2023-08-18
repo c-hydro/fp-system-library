@@ -2,11 +2,10 @@
 
 #-----------------------------------------------------------------------------------------
 # NOTE:
-# sudo apt-get install sqlite3
 # sudo apt-get install p7zip-full
 # sudo apt-get install sqlite3
 # sudo apt-get install libsqlite3-dev
-# sudo apt-get install libtiff-de
+# sudo apt-get install libtiff-dev
 # sudo apt-get install libcurl4-gnutls-dev
 #-----------------------------------------------------------------------------------------
 
@@ -46,8 +45,8 @@ library_cmd_archive_unzip_group=(
 )
 
 library_cmd_archive_configure='./configure --prefix=%LIBRARY_PATH_BUILDING_DESTINATION'
-library_cmd_archive_build='/bin/make'
-library_cmd_archive_install='/bin/make install'
+library_cmd_archive_build='make'
+library_cmd_archive_install='make install'
 # ----------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------

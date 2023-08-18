@@ -2,6 +2,9 @@
 
 #-----------------------------------------------------------------------------------------
 # NOTE:
+# https://stackoverflow.com/questions/56764046/gdal-ogr2ogr-cannot-find-proj-db-error
+# For some installation the csv gdal file have to be copied in the /gdal/share/gdal folder
+# to avoid error4 (find them here: /gdal_csv_files_to_skip_error4)
 #-----------------------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------------------
@@ -53,8 +56,8 @@ library_cmd_archive_unzip_group=(
 
 library_cmd_archive_configure='./configure --with-openjpeg=%LIBRARY_DEPS_OPENJPEG_MAIN --with-geos=%LIBRARY_DEPS_GEOS_CONFIG --with-proj=%LIBRARY_DEPS_PROJ_MAIN --with-netcdf=%LIBRARY_DEPS_NETCDF_MAIN --with-hdf4=%LIBRARY_DEPS_HDF4_MAIN --with-hdf5=%LIBRARY_DEPS_HDF5_MAIN --prefix=%LIBRARY_PATH_BUILDING_DESTINATION'
 
-library_cmd_archive_build='/bin/make'
-library_cmd_archive_install='/bin/make install'
+library_cmd_archive_build='make'
+library_cmd_archive_install='make install'
 # ----------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------

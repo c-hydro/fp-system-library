@@ -6,21 +6,21 @@
 
 #-----------------------------------------------------------------------------------------
 # Script information
-script_name='FP ENVIRONMENT - SYSTEM LIBRARIES GENERIC - JASPER'
+script_name='FP ENVIRONMENT - SYSTEM LIBRARIES GENERIC - ANTLR'
 script_version="1.0.0"
-script_date='2022/05/18'
+script_date='2023/08/18'
 
 # Define library name, archive and repository
 library_clean=true
-library_name='jasper'
-library_archive_generic='jasper.tar.gz'
-library_archive_reference='jasper-2.0.14.tar.gz'
-library_archive_address='http://www.ece.uvic.ca/~frodo/jasper/software/'
+library_name='antlr'
+library_archive_generic='antlr.tar.gz'
+library_archive_reference='antlr-2.7.7.tar.gz'
+library_archive_address='NO_ADDRESS_ONLY_LOCAL_FILE'
 
 # Define library building root and source path
 generic_path_building_destination=$HOME/fp_system_libs_generic
 generic_path_building_source=$HOME/fp_system_libs_generic/source
-generic_file_env='fp_system_libs_generic_jasper'
+generic_file_env='fp_system_libs_generic_antlr'
 
 generic_path_installer_exec=$(pwd)
 generic_path_installer_archive=$(pwd)
@@ -30,9 +30,9 @@ library_cmd_archive_remove_source='rm -rf %LIBRARY_PATH_BUILDING_SOURCE'
 library_cmd_archive_remove_destination='rm -rf %LIBRARY_PATH_BUILDING_DESTINATION'
 library_cmd_archive_download_local='cp %LIBRARY_ARCHIVE_LINK_LOCAL %LIBRARY_ARCHIVE_BUILDING_SOURCE'
 library_cmd_archive_download_remote='wget %LIBRARY_ARCHIVE_LINK_REMOTE -O %LIBRARY_ARCHIVE_BUILDING_SOURCE'
-library_cmd_archive_unzip="tar -xzvf %LIBRARY_ARCHIVE_BUILDING_SOURCE -C %LIBRARY_PATH_BUILDING_SOURCE --strip-components=1"
+library_cmd_archive_unzip="tar -xvf %LIBRARY_ARCHIVE_BUILDING_SOURCE -C %LIBRARY_PATH_BUILDING_SOURCE --strip-components=1"
 
-library_cmd_archive_configure='cmake . -DALLOW_IN_SOURCE_BUILD=RELEASE -DCMAKE_INSTALL_PREFIX=%LIBRARY_PATH_BUILDING_DESTINATION'
+library_cmd_archive_configure='./configure --prefix=%LIBRARY_PATH_BUILDING_DESTINATION'
 library_cmd_archive_build='make'
 library_cmd_archive_install='make install'
 # ----------------------------------------------------------------------------------------
@@ -149,6 +149,7 @@ if [ ! -d "${library_path_bin}" -a ! -d "${library_path_lib}" ]; then
 	fi
 	# ----------------------------------------------------------------------------------------
 
+
 	# ----------------------------------------------------------------------------------------
 	# Configure archive source(s)
 	echo " ====> CONFIGURE ARCHIVE "${library_archive_generic}" ... "
@@ -164,7 +165,7 @@ if [ ! -d "${library_path_bin}" -a ! -d "${library_path_lib}" ]; then
 		exit
 	else
 		# Info tag end (completed)
-		echo " ====> CONFIGURE ARCHIVE ${library_cmd_archive_configure} ... DONE"
+		echo " ====> CONFIGURE ARCHIVE ${library_archive_generic} ... DONE"
 	fi
 	# ----------------------------------------------------------------------------------------
 
@@ -175,6 +176,7 @@ if [ ! -d "${library_path_bin}" -a ! -d "${library_path_lib}" ]; then
 
 	# Execute command-line
 	cd $library_path_building_source
+	echo $(pwd)
 	if ! ${library_cmd_archive_build} ; then
 		# Info tag end (failed)
 		echo " ====> BUILD ARCHIVE ... FAILED. ERRORS IN EXECUTING $library_cmd_archive_build COMMAND-LINE"
@@ -191,6 +193,7 @@ if [ ! -d "${library_path_bin}" -a ! -d "${library_path_lib}" ]; then
 
 	# Execute command-line
 	cd $library_path_building_source
+	echo $(pwd)
 	if ! ${library_cmd_archive_install} ; then
 		# Info tag end (failed)
 		echo " ====> INSTALL ARCHIVE ... FAILED. ERRORS IN EXECUTING $library_cmd_archive_install COMMAND-LINE"
