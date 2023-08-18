@@ -2,6 +2,12 @@
 Changelog
 =========
 
+Version 1.0.2 [2022-12-09]
+**************************
+FIX: **setup_fp_system_library_gdal.sh**
+    - Add folder of geographical files to skip error4 in build gdal library
+
+
 Version 1.0.1 [2022-10-27]
 **************************
 APP: **setup_fp_system_library_s3m.sh**
