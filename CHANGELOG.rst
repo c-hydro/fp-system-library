@@ -4,6 +4,9 @@ Changelog
 
 Version 1.0.1 [2022-10-27]
 **************************
+APP: **setup_fp_system_library_s3m.sh**
+    - Script for installing s3m library  
+
 FIX: **setup_fp_system_library_hmc.sh**
     - Library zlib version set to 1.2.13  
     
