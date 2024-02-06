@@ -2,7 +2,7 @@
 
 #-----------------------------------------------------------------------------------------
 # NOTE:
-# sudo apt-get install libjpeg-dev
+# sudo apt-get install libjpeg-dev # only for version 4.2.13 
 # sudo apt-get install bison
 # sudo apt-get install flex
 #-----------------------------------------------------------------------------------------
@@ -10,15 +10,21 @@
 #-----------------------------------------------------------------------------------------
 # Script information
 script_name='FP ENVIRONMENT - SYSTEM LIBRARIES GENERIC - HDF4'
-script_version="1.0.0"
-script_date='2022/05/18'
+script_version="1.5.0"
+script_date='2024/01/26'
 
 # Define library name, archive and repository
 library_clean=true
 library_name='hdf4'
 library_archive_generic_group=('hdf4.tar.gz')
-library_archive_reference_group=('hdf-4.2.13.tar.gz')
-library_archive_address_group=('https://support.hdfgroup.org/ftp/HDF/HDF_Current/src/')
+
+# old version (always in current folder in the hdf downloads)
+#library_archive_reference_group=('hdf-4.2.13.tar.gz')
+#library_archive_address_group=('https://support.hdfgroup.org/ftp/HDF/HDF_Current/src/')
+
+# new version (check the releases folder in the hdf downloads)
+library_archive_reference_group=('hdf-4.2.16.tar.gz')
+library_archive_address_group=('https://support.hdfgroup.org/ftp/HDF/releases/HDF4.2.16/src/')
 
 # Define library building root and source path
 generic_path_building_destination=$HOME/fp_system_libs_generic
@@ -29,7 +35,8 @@ generic_path_installer_exec=$(pwd)
 generic_path_installer_archive=$(pwd)
 
 library_deps_zlib=${generic_path_building_destination}/zlib
-library_deps_jpeg=/usr/lib/
+#library_deps_jpeg=/usr/lib/ ## issue on 4.2.13 version
+library_deps_jpeg=${generic_path_building_destination}/openjpeg ## used for 4.2.16 version
 
 # Define library line command
 library_cmd_archive_download_local_group=(
@@ -38,8 +45,14 @@ library_cmd_archive_download_local_group=(
 library_cmd_archive_download_remote_group=(
 	'wget %LIBRARY_ARCHIVE_LINK_REMOTE -O %LIBRARY_ARCHIVE_BUILDING_SOURCE'
 )
+
+# for the current folder (4.2.13 version)
+#library_cmd_archive_unzip_group=(
+#	"tar -xvf %LIBRARY_ARCHIVE_BUILDING_SOURCE -C %LIBRARY_PATH_BUILDING_SOURCE --strip-components=1"
+#)
+# for the releases folder (4.2.16 version)
 library_cmd_archive_unzip_group=(
-	"tar -xvf %LIBRARY_ARCHIVE_BUILDING_SOURCE -C %LIBRARY_PATH_BUILDING_SOURCE --strip-components=1"
+	"tar -xvf %LIBRARY_ARCHIVE_BUILDING_SOURCE -C %LIBRARY_PATH_BUILDING_SOURCE --strip-components=2"
 )
 
 library_cmd_archive_configure='./configure --disable-netcdf --enable-shared --disable-fortran --prefix=%LIBRARY_PATH_BUILDING_DESTINATION --with-zlib=%LIBRARY_DEPS_ZLIB --with-jpeg=%LIBRARY_DEPS_JPEG'

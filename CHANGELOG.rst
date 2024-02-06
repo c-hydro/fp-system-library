@@ -2,6 +2,20 @@
 Changelog
 =========
 
+Version 1.0.4 [2024-01-26]
+**************************
+FIX: **setup_fp_system_library_eccodes.sh**
+    - Library eccodes add some notes to prerequisites (fortran)
+
+FIX: **setup_fp_system_library_proj.sh**
+    - Library proj add some notes to prerequisites (libtiff and pkg-config)
+
+FIX: **setup_fp_system_library_hdf4.sh**
+    - Library hdf4 version set to 4.2.16 (to solve openjpeg linking)
+
+FIX: **setup_fp_system_library_zlib.sh**
+    - Library zlib version set to 1.3.1 
+
 Version 1.0.3 [2023-08-18]
 **************************
 APP: **setup_fp_system_library_antlr.sh**

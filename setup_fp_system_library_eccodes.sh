@@ -5,13 +5,14 @@
 # sudo apt-get install python-dev   # for python2.x
 # sudo apt-get install python3-dev  # for python3.x
 # sudo apt-get install cmake
+# sudo apt-get install gfortran     # just in case ...
 #-----------------------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------------------
 # Script information
 script_name='FP ENVIRONMENT - SYSTEM LIBRARIES GENERIC - ECCODES'
-script_version="1.0.0"
-script_date='2022/05/18'
+script_version="1.1.0"
+script_date='2024/01/26'
 
 # Define library name, archive and repository
 library_clean=true

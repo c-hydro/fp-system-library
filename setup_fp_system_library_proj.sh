@@ -5,15 +5,16 @@
 # sudo apt-get install p7zip-full
 # sudo apt-get install sqlite3
 # sudo apt-get install libsqlite3-dev
-# sudo apt-get install libtiff-dev
+# sudo apt-get install libtiff-dev # configure: error: Package requirements (libtiff-4)
 # sudo apt-get install libcurl4-gnutls-dev
+# sudo apt-get install pkg-config # configure: error: The pkg-config script could not be found or is too old.
 #-----------------------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------------------
 # Script information
 script_name='FP ENVIRONMENT - SYSTEM LIBRARIES GENERIC - PROJ'
-script_version="1.0.0"
-script_date='2022/05/18'
+script_version="1.1.0"
+script_date='2024/01/26'
 
 # Define library name, archive and repository
 library_clean=true
