@@ -2,6 +2,11 @@
 Changelog
 =========
 
+Version 1.0.5 [2024-02-21]
+**************************
+FIX: **setup_fp_system_library_hmc.sh**
+    - Library hmc change the zlib version (3.1.3) and add flag to allow argument mismatch (fortran compiler)
+
 Version 1.0.4 [2024-01-26]
 **************************
 FIX: **setup_fp_system_library_eccodes.sh**
