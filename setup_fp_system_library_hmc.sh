@@ -164,7 +164,7 @@ export FFLAGS=-g
 if [[ "$flag_allow_argument_mismatch" == 1 ]]; then
 	export FCFLAGS="-w -fallow-argument-mismatch -O2" 	# fortran compiler or system/type version errors
 	export FFLAGS="-w -fallow-argument-mismatch -O2" 	# fortran compiler or system/type version errors
-elif
+fi
 export CPPFLAGS=-DgFortran
 
 LDFLAGS="-L${fp_folder_hdf5}/lib -L${fp_folder_zlib}/lib" CPPFLAGS="-I${fp_folder_hdf5}/include -I${fp_folder_zlib}/include/" ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=$fp_folder_nc4_c --disable-doxygen
@@ -193,7 +193,7 @@ if [[ "$flag_allow_argument_mismatch" == 1 ]]; then
 else
 	export FCFLAGS=""
 	export FFLAGS=""
-elif
+fi
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${fp_folder_nc4_c}/lib
 
 LDFLAGS="-L${fp_folder_hdf5}/lib -L${fp_folder_zlib}/lib -L${fp_folder_nc4_c}/lib" CPPFLAGS="-I${fp_folder_hdf5}/include -I${fp_folder_zlib}/include -I${fp_folder_nc4_c}/include"  ./configure --prefix=${fp_folder_nc4_fortran}
