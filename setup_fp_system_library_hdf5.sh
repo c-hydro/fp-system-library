@@ -8,15 +8,19 @@
 #-----------------------------------------------------------------------------------------
 # Script information
 script_name='FP ENVIRONMENT - SYSTEM LIBRARIES GENERIC - HDF5'
-script_version="1.0.0"
-script_date='2022/05/18'
+script_version="1.0.1"
+script_date='2025/02/25'
 
 # Define library name, archive and repository
 library_clean=true
 library_name='hdf5'
 library_archive_generic_group=('hdf5.tar.gz')
+# old version 1.10.8 (tested for all libraries and apps) 
 library_archive_reference_group=('hdf5-1.10.8.tar.gz')
-library_archive_address_group=('https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.8/src/')
+library_archive_address_group=('https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.8/src') # not traling last slash
+# new version 1.14.6 (not tested)
+# library_archive_reference_group=('hdf5-1.14.6.tar.gz')
+# library_archive_address_group=('https://support.hdfgroup.org/releases/hdf5/v1_14/v1_14_6/downloads')
 
 # Define library building root and source path
 generic_path_building_destination=$HOME/fp_system_libs_generic

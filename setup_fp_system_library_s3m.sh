@@ -14,11 +14,11 @@
 #-----------------------------------------------------------------------------------------
 # Script information
 script_name='FP ENVIRONMENT - SYSTEM LIBRARIES S3M'
-script_version="1.0.0"
-script_date='2022/11/17'
+script_version="1.0.2"
+script_date='2025/01/21'
 
 # Define file reference path according with https link(s)
-fileref_zlib='http://www.zlib.net/zlib-1.2.13.tar.gz'
+fileref_zlib='http://www.zlib.net/zlib-1.3.1.tar.gz'
 fileref_hdf5='https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.17/src/hdf5-1.8.17.tar.gz'
 fileref_nc4_c='https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.6.0.tar.gz'
 fileref_nc4_fortran='https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.3.tar.gz'
@@ -26,6 +26,9 @@ fileref_nc4_fortran='https://github.com/Unidata/netcdf-fortran/archive/refs/tags
 # Argument(s) default definition(s)
 fp_folder_root_default=$HOME/fp_system_libs_s3m
 fileref_env_default='fp_system_libs_s3m'
+
+# compiler option(s) :: value=[0,1] ---> error(s) due to the compiler version
+flag_allow_argument_mismatch=1
 # ----------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------
@@ -158,8 +161,10 @@ export FC=gfortran
 export F77=gfortran
 export F90=gfortran
 export FFLAGS=-g
-#export FCFLAGS="-w -fallow-argument-mismatch -O2" # older fortran compilers
-#export FFLAGS="-w -fallow-argument-mismatch -O2" # older fortran compilers
+if [[ "$flag_allow_argument_mismatch" == 1 ]]; then
+	export FCFLAGS="-w -fallow-argument-mismatch -O2" 	# fortran compiler or system/type version errors
+	export FFLAGS="-w -fallow-argument-mismatch -O2" 	# fortran compiler or system/type version errors
+fi
 export CPPFLAGS=-DgFortran
 
 LDFLAGS="-L${fp_folder_hdf5}/lib -L${fp_folder_zlib}/lib" CPPFLAGS="-I${fp_folder_hdf5}/include -I${fp_folder_zlib}/include/" ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=$fp_folder_nc4_c --disable-doxygen
@@ -182,11 +187,13 @@ cd $fp_folder_source_nc4_fortran
 
 export CC=gcc
 export FC=gfortran
-#export FCFLAGS="-w -fallow-argument-mismatch -O2" # older fortran compilers
-#export FFLAGS="-w -fallow-argument-mismatch -O2" # older fortran compilers
-export FCFLAGS=""
-export FFLAGS=""
-
+if [[ "$flag_allow_argument_mismatch" == 1 ]]; then
+	export FCFLAGS="-w -fallow-argument-mismatch -O2" 	# fortran compiler or system/type version errors
+	export FFLAGS="-w -fallow-argument-mismatch -O2" 	# fortran compiler or system/type version errors
+else
+	export FCFLAGS=""
+	export FFLAGS=""
+fi
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${fp_folder_nc4_c}/lib
 
 LDFLAGS="-L${fp_folder_hdf5}/lib -L${fp_folder_zlib}/lib -L${fp_folder_nc4_c}/lib" CPPFLAGS="-I${fp_folder_hdf5}/include -I${fp_folder_zlib}/include -I${fp_folder_nc4_c}/include"  ./configure --prefix=${fp_folder_nc4_fortran}

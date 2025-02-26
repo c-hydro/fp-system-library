@@ -57,7 +57,7 @@ library_cmd_archive_download_remote_group=(
 	'wget %LIBRARY_ARCHIVE_LINK_REMOTE -O %LIBRARY_ARCHIVE_BUILDING_SOURCE'
 )
 library_cmd_archive_unzip_group=(
-	"tar -xvf %LIBRARY_ARCHIVE_BUILDING_SOURCE -C %LIBRARY_PATH_BUILDING_SOURCE --strip-components=2"
+	"tar -xvf %LIBRARY_ARCHIVE_BUILDING_SOURCE -C %LIBRARY_PATH_BUILDING_SOURCE --strip-components=1"
 )
 
 library_cmd_archive_configure='./configure --enable-netcdf-4 --enable-dap --enable-shared --disable-doxygen --prefix=%LIBRARY_PATH_BUILDING_DESTINATION'

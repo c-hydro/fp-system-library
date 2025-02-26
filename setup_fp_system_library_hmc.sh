@@ -23,7 +23,7 @@ fileref_hdf5='https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.1
 fileref_nc4_c='https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.6.0.tar.gz'
 fileref_nc4_fortran='https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.3.tar.gz'
 
-# Argument(s) default definition(s)
+# Argument(s) constants definition(s)
 fp_folder_root_default=$HOME/fp_system_libs_hmc
 fileref_env_default='fp_system_libs_hmc'
 

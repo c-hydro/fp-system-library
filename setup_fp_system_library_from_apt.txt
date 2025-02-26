@@ -1,0 +1,21 @@
+# mandatory libraries and apps [sudoers]
+apt-get install lsof
+apt-get install lftp
+apt-get install wget
+apt-get install gcc
+apt-get install g++
+apt-get install cron
+apt-get install git
+apt-get install make
+apt-get install m4
+apt-get install libcurl4-openssl-dev
+apt-get install cmake
+apt-get install gfortran
+apt-get install python3-dev
+
+
+# ancillary libraries and apps [sudoers]
+apt-get install rsync
+apt-get install htop
+apt-get install nano
+apt-get install mc

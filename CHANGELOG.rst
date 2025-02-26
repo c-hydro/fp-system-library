@@ -2,6 +2,17 @@
 Changelog
 =========
 
+Version 1.0.6 [2025-02-25]
+**************************
+FIX: **setup_fp_system_library_nc4.sh**
+    - Library nc4 set strip_components=1 in unzipping tar.gx archive (mismatch with the previous behaviours)
+
+FIX: **setup_fp_system_library_s3m.sh**
+    - Library hmc change the zlib version (3.1.3) and add flag to allow argument mismatch (fortran compiler)
+
+FIX: **setup_fp_system_library_hdf5.sh**
+    - Library hdf5 update the links of old (tested) and new (not tested) libraries according with other libraries and applications
+
 Version 1.0.5 [2024-02-21]
 **************************
 FIX: **setup_fp_system_library_hmc.sh**
