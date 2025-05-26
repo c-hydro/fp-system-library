@@ -193,7 +193,7 @@ if [[ "$flag_allow_argument_mismatch" == 1 ]]; then
 else
 	export FCFLAGS=""
 	export FFLAGS=""
-elif
+fi
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${fp_folder_nc4_c}/lib
 
 LDFLAGS="-L${fp_folder_hdf5}/lib -L${fp_folder_zlib}/lib -L${fp_folder_nc4_c}/lib" CPPFLAGS="-I${fp_folder_hdf5}/include -I${fp_folder_zlib}/include -I${fp_folder_nc4_c}/include"  ./configure --prefix=${fp_folder_nc4_fortran}
