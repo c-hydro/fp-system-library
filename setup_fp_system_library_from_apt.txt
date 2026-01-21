@@ -12,10 +12,12 @@ apt-get install libcurl4-openssl-dev
 apt-get install cmake
 apt-get install gfortran
 apt-get install python3-dev
-
+apt-get install screen
 
 # ancillary libraries and apps [sudoers]
 apt-get install rsync
 apt-get install htop
 apt-get install nano
 apt-get install mc
+apt-get install inotify-tools
+

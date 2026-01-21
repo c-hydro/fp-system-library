@@ -14,21 +14,28 @@
 #-----------------------------------------------------------------------------------------
 # Script information
 script_name='FP ENVIRONMENT - SYSTEM LIBRARIES HMC'
-script_version="1.0.2"
-script_date='2024/02/21'
+script_version="1.0.3"
+script_date='2026/01/21'
 
 # Define file reference path according with https link(s)
 fileref_zlib='http://www.zlib.net/zlib-1.3.1.tar.gz'
-fileref_hdf5='https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.17/src/hdf5-1.8.17.tar.gz'
-fileref_nc4_c='https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.6.0.tar.gz'
-fileref_nc4_fortran='https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.3.tar.gz'
+
+# VERSIONS BUILD BY GCC-9
+#fileref_hdf5='https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.17/src/hdf5-1.8.17.tar.gz' 
+#fileref_nc4_c='https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.6.0.tar.gz'
+#fileref_nc4_fortran='https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.3.tar.gz'
+
+# VERSIONS BUILD BY GCC-15
+fileref_hdf5='https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.1/src/hdf5-1.12.1.tar.gz'
+fileref_nc4_c='https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.4.tar.gz'
+fileref_nc4_fortran='https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.4.tar.gz'
 
 # Argument(s) constants definition(s)
 fp_folder_root_default=$HOME/fp_system_libs_hmc
 fileref_env_default='fp_system_libs_hmc'
 
 # compiler option(s) :: value=[0,1] ---> error(s) due to the compiler version
-flag_allow_argument_mismatch=1
+#flag_allow_argument_mismatch=1
 # ----------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------
@@ -36,6 +43,20 @@ flag_allow_argument_mismatch=1
 echo " ==================================================================================="
 echo " ==> "$script_name" (Version: "$script_version" Release_Date: "$script_date")"
 echo " ==> START ..."
+
+# Toolchain (can be overridden from environment)
+CC=${CC:-gcc}
+CXX=${CXX:-g++}
+FC=${FC:-gfortran}
+F77=${F77:-$FC}
+F90=${F90:-$FC}
+
+echo " ==> Compilers ToolChain:"
+echo "     CC=$CC"
+echo "     CXX=$CXX"
+echo "     FC=$FC"
+$CC --version | head -1
+$FC --version | head -1
 
 # Get arguments number and values
 script_args_n=$#
@@ -155,16 +176,17 @@ fi
 tar -xvf nc4_c.tar.gz -C $fp_folder_source_nc4_c --strip-components=1
 cd $fp_folder_source_nc4_c
 
-export CC=gcc
-export CXX=g++
-export FC=gfortran
-export F77=gfortran
-export F90=gfortran
+# set compilers
+export CC CXX FC F77 F90
+# set flags
 export FFLAGS=-g
-if [[ "$flag_allow_argument_mismatch" == 1 ]]; then
-	export FCFLAGS="-w -fallow-argument-mismatch -O2" 	# fortran compiler or system/type version errors
-	export FFLAGS="-w -fallow-argument-mismatch -O2" 	# fortran compiler or system/type version errors
-elif
+if $FC -fallow-argument-mismatch -c -x f95 /dev/null >/dev/null 2>&1; then
+  export FCFLAGS="-w -fallow-argument-mismatch -O2"
+  export FFLAGS="-w -fallow-argument-mismatch -O2"
+else
+  export FCFLAGS="-O2"
+  export FFLAGS="-O2"
+fi
 export CPPFLAGS=-DgFortran
 
 LDFLAGS="-L${fp_folder_hdf5}/lib -L${fp_folder_zlib}/lib" CPPFLAGS="-I${fp_folder_hdf5}/include -I${fp_folder_zlib}/include/" ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=$fp_folder_nc4_c --disable-doxygen
@@ -185,15 +207,17 @@ fi
 tar -xvf nc4_fortran.tar.gz -C $fp_folder_source_nc4_fortran --strip-components=1
 cd $fp_folder_source_nc4_fortran
 
-export CC=gcc
-export FC=gfortran
-if [[ "$flag_allow_argument_mismatch" == 1 ]]; then
-	export FCFLAGS="-w -fallow-argument-mismatch -O2" 	# fortran compiler or system/type version errors
-	export FFLAGS="-w -fallow-argument-mismatch -O2" 	# fortran compiler or system/type version errors
+# set compilers
+export CC CXX FC F77 F90
+# set flags
+if $FC -fallow-argument-mismatch -c -x f95 /dev/null >/dev/null 2>&1; then
+  export FCFLAGS="-w -fallow-argument-mismatch -O2"
+  export FFLAGS="-w -fallow-argument-mismatch -O2"
 else
-	export FCFLAGS=""
-	export FFLAGS=""
-elif
+  export FCFLAGS="-O2"
+  export FFLAGS="-O2"
+fi
+
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${fp_folder_nc4_c}/lib
 
 LDFLAGS="-L${fp_folder_hdf5}/lib -L${fp_folder_zlib}/lib -L${fp_folder_nc4_c}/lib" CPPFLAGS="-I${fp_folder_hdf5}/include -I${fp_folder_zlib}/include -I${fp_folder_nc4_c}/include"  ./configure --prefix=${fp_folder_nc4_fortran}
@@ -236,8 +260,4 @@ echo " ==> ... END"
 echo " ==> Bye, Bye"
 echo " ==================================================================================="
 # ----------------------------------------------------------------------------------------
-
-
-
-
 
