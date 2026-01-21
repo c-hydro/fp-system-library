@@ -292,10 +292,10 @@ If switching compiler/toolchain, use a clean prefix folder.
 
 ## Changelog
 
-See `CHANGELOG.rst` (or the `Changelog` section maintained in this repository).
+See `CHANGELOG` for updates of this repository.
 
 ---
 
 ## License
 
-This repository is released under the MIT License (see `LICENSE`).
+This repository is released under the EUPL License (see `LICENSE`).
