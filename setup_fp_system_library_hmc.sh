@@ -18,7 +18,7 @@ script_version="1.0.3"
 script_date='2026/01/21'
 
 # Define file reference path according with https link(s)
-fileref_zlib='http://www.zlib.net/zlib-1.3.1.tar.gz'
+fileref_zlib='http://www.zlib.net/current/zlib.tar.gz'
 
 # VERSIONS BUILD BY GCC-9
 #fileref_hdf5='https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.17/src/hdf5-1.8.17.tar.gz' 
